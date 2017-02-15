@@ -6,7 +6,6 @@ $(document).ready(function() {
     url  : "http://localhost:3000/todo",
     method : "GET",
     success: function(data) {
-      console.log(data);
       var arrTemp = ""
       for (var i = 0; i < data.length; i++) {
         if (data[i].status == true) {
@@ -41,7 +40,20 @@ $(document).ready(function() {
       $('#todo').append(arrTemp)
     }
   })
-
-
-
 })
+
+function newTask(){
+  $(document).ready(function(){
+    $.ajax({
+      url  : "http://localhost:3000/todo/new",
+      type : "POST",
+      data: {
+        task: $('#newTask').val()
+      },
+      success: function(data) {
+        console.log(data);
+        location.reload();
+      }
+    })
+  })
+}
