@@ -11,7 +11,7 @@ $(document).ready(function() {
       for (var i = 0; i < data.length; i++) {
         if (data[i].status == true) {
           arrTemp += `
-            <tr id="task-${i}">
+            <tr id="task-${i}" class="done">
                 <td>${data[i].task}</td>
                 <td>
                   <i class="material-icons">done</i>
@@ -25,7 +25,7 @@ $(document).ready(function() {
         }
         else {
           arrTemp += `
-          <tr id="task-${i}">
+          <tr id="task-${i}" class="undone">
               <td>${data[i].task}</td>
               <td>
                 <i class="material-icons">remove</i>
